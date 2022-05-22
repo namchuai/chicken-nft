@@ -3,23 +3,26 @@ require('dotenv').config();
 const API_URL = process.env.API_URL
 const PUBLIC_KEY = process.env.PUBLIC_KEY
 const PRIVATE_KEY = process.env.PRIVATE_KEY
-console.log(PRIVATE_KEY);
-console.log(PUBLIC_KEY);
+
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(API_URL);
 
-const contract = require("../artifacts/contracts/ChickenNFT.sol/ChickenNFT.json");
-const contractAddress = "0x3d47f2cc569e3097c2622d1657b38f7838f23635";
+const contract = require("../artifacts/contracts/MyriaAsset.sol/MyriaAsset.json");
+const contractAddress = "0x4EC5aF52445Dc403E175b7b380f8bCA840F51119";
 const nftContract = new web3.eth.Contract(contract.abi, contractAddress);
 
 async function mintNFT(tokenURI) {
   const nonce = await web3.eth.getTransactionCount(PUBLIC_KEY, 'latest');
+
+  const tokenId = "1";
+  const mintingBlob = `${tokenId}:${tokenURI}`;
+  const mintingBlobBytes = web3.utils.asciiToHex(mintingBlob);
   const tx = {
     'from': PUBLIC_KEY,
     'to': contractAddress,
     'nonce': nonce,
     'gas': 500000,
-    'data': nftContract.methods.mintNFT(PUBLIC_KEY, tokenURI).encodeABI()
+    'data': nftContract.methods.mintFor(PUBLIC_KEY, "1", mintingBlobBytes).encodeABI()
   }
 
   const signPromise = web3.eth.accounts.signTransaction(tx, PRIVATE_KEY);
@@ -49,4 +52,5 @@ async function mintNFT(tokenURI) {
     })
 }
 
-mintNFT("ipfs://Qmeih2ANTWiz6XgbWAWGf965RJK6BUwo1GHTrLXx31JUva");
+mintNFT("Qmeih2ANTWiz6XgbWAWGf965RJK6BUwo1GHTrLXx31JUva");
+// console.log(`data: ${web3.utils.hexToAscii("0x313a516d65696832414e5457697a365867625741574766393635524a4b364255776f31474854724c587833314a557661")}`);
