@@ -1,0 +1,55 @@
+{
+  "order_root": {
+    "height": 63,
+    "root": "02415ec43f67643dc285ca568c8ba77716f4c6e05cbea5c65991b49d7ab00a77"
+  },
+  "prev_batch_id": 1884,
+  "prev_order_root": {
+    "height": 63,
+    "root": "01ba766207d3d691b421d29f09ed5c61fcf9c5d21e5de21a8ae893e6f346e067"
+  },
+  "prev_vault_root": {
+    "height": 31,
+    "root": "02ecb41f335129d9d563842319f620217732775c05ea7ebe0485644020c3266c"
+  },
+  "sequence_number": 1816,
+  "time_created": 1655181064,
+  "txs_info": [
+    {
+      "alt_txs": null,
+      "original_tx": {
+        "amount": "100",
+        "expiration_timestamp": 4194303,
+        "nonce": 6,
+        "receiver_public_key": "0xc664b68afced392656ed8c4adaefa8e8ffbf65dc",
+        "receiver_vault_id": 1222222924,
+        "sender_public_key": "0x38cae143fe6d2b8bdb7051f211744017d98f7e6a67e45a5dfc08759c119cf3c",
+        "sender_vault_id": 1222222923,
+        "signature": {
+          "r": "0x43b8cf9a854f12dc9299a1ab9ea22cd6c93aa9e48391ba27c3ffd7b9ee29b6b",
+          "s": "0x95a6f7f38ab405095999a28379c05bfa3645b8c50e08f569c3494128ecc7d0"
+        },
+        "token": "0x2aa4d29d94d22aafbd67c6bd969ad8d9527fbe6a4c3d658ddf52d76c8f5cda6",
+        "type": "TransferRequest"
+      },
+      "tx_id": 22643,
+      "was_replaced": false
+    },
+    {
+      "alt_txs": null,
+      "original_tx": {
+        "amount": "100",
+        "stark_key": "0xc664b68afced392656ed8c4adaefa8e8ffbf65dc",
+        "token_id": "0x2aa4d29d94d22aafbd67c6bd969ad8d9527fbe6a4c3d658ddf52d76c8f5cda6",
+        "type": "WithdrawalRequest",
+        "vault_id": 1222222924
+      },
+      "tx_id": 22644,
+      "was_replaced": false
+    }
+  ],
+  "vault_root": {
+    "height": 31,
+    "root": "070e8bb3629c10b6c490be5f1c8309d686f56498b82fc2fa97dc746fda8b639f"
+  }
+}
